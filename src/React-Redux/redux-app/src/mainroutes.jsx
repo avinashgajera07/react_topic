@@ -25,6 +25,6 @@ const MainRoutes = createBrowserRouter([
     }, {
         path: "/accessstore",
         element: <GetStoreData />,
-    }
+    },
 ]);
 export default MainRoutes;
