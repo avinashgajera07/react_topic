@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Avinash",
+      "email": "aviansh@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Hardip",
+      "email": "hardip@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Jignesh",
+      "email": "jignesh@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Hardik",
+      "email": "hardik@gmail.com"
+    },
+    {
+      "name": "Ronak",
+      "email": "php@primedemo.in",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "Raj",
+      "email": "raj@gmail.com"
+    },
+    {
+      "id": 8,
+      "name": "Chintan",
+      "email": "chintan@gmail.com"
+    },
+    {
+      "id": 9,
+      "name": "Ravi",
+      "email": "ravi@gmail.com"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import PricingPage from "./PricingPage.jsx";
 import Features from "./Features.jsx";
 import Login from "./Login";
 import Registration from "./Registration";
+import Examples from "./Examples.jsx";
 // import ClassComponent from "./Component/ClassComponent/ClassRoute.jsx";
 
 const AdminRoute = React.lazy(() => import('./Components/Admin/AdminRoute'))
@@ -34,7 +35,11 @@ const MainRoutes = createBrowserRouter([
     }, {
         path: "/register",
         element: <Registration />,
-    }, {
+    },{
+        path: "/examples",
+        element: <Examples />,
+    }, 
+     {
         path: "admin/*",
         element: <Suspense fallback={<h2>Loading...</h2>}><AdminRoute /></Suspense> 
     }
