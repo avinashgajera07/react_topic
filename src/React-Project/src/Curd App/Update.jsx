@@ -24,7 +24,7 @@ function Update() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.put("http://localhost:3000/users" + id, inputData).then((res) => {
+    axios.put("http://localhost:3000/users/" + id, inputData).then((res) => {
       alert("Data updated successfully!");
       navigate("/");
     });

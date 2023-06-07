@@ -15,7 +15,7 @@ function Home() {
     
   return (
     <div className='container mt-5'>
-        <h2>CURD Opration</h2>
+        <h2>CURD Operation</h2>
         <Link to='/create' className='btn btn-success my-3'>Create +</Link>
         <Table className="table">
             <theade>
@@ -24,7 +24,7 @@ function Home() {
                     <th>Name</th>
                     <th>Email</th>
                     <th>Action</th>
-                </tr>
+                    </tr>
             </theade>
             <tbody>
                 {data.map((d,i) =>(

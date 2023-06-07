@@ -14,9 +14,14 @@ const navigate = useNavigate();
     event.preventDefault();
     axios.post('http://localhost:3000/users',inputData)
     .then(res =>{
-        alert("Data posts successfully!")
-        navigate('/')
+      navigate('/')
     })
+    if(inputData!== ""){
+      alert("data not submited")
+    }else{
+      alert("Data posts successfully!")
+
+    }
   }
   return (
     <div className="d-flex w-100 vh-100 justify-content-center align-items-center">
