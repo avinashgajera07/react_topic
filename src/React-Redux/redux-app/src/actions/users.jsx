@@ -1,4 +1,4 @@
-import UserService from "./../services/UserService.jsx"
+ import UserService from "./../services/UserService.jsx"
 
 export const retierveUsers = () => async(dispatch)=>{
     console.log("retierveUsers inside action");
