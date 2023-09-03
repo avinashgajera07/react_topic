@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import  axios  from "axios";
+import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -12,8 +12,8 @@ function Read() {
   useEffect(() => {
     axios
       .get("http://localhost:3000/users/" + id)
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => setData(res.data));
+    // .catch((err) => console.log(err));
   }, []);
 
   return (

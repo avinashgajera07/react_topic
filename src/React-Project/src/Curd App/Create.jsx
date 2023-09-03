@@ -3,12 +3,12 @@ import { useNavigate } from "react-router";
 import axios from 'axios'
 
 function Create() {
+  const navigate = useNavigate();
   const [inputData, setInputData] =useState({
     id :'',
     name:'',
     email:''
-  })
-const navigate = useNavigate();
+  });
 
   const handleSubmit = (event) =>{
     event.preventDefault();
@@ -16,10 +16,10 @@ const navigate = useNavigate();
     .then(res =>{
       navigate('/')
     })
-    if(inputData!== ""){
-      alert("data not submited")
+    if(inputData){
+      alert("data not submited");
     }else{
-      alert("Data posts successfully!")
+      alert("Data posts successfully!");
 
     }
   }

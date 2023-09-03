@@ -1,0 +1,136 @@
+{
+  "user-management": [
+    {
+      "username": "12121",
+      "password": "123456",
+      "confirm_password": "123456",
+      "employeeid": "98",
+      "usertype": "admin",
+      "joiningdate": "1111-01-21",
+      "expirydate": "2021-01-12",
+      "activestatus": "false",
+      "neverexpired": "true",
+      "id": 39
+    },
+    {
+      "username": "assddfsgdfgd",
+      "password": "123456",
+      "confirm_password": "123456",
+      "employeeid": "98",
+      "usertype": "user",
+      "joiningdate": "2023-09-01",
+      "expirydate": "2023-08-29",
+      "activestatus": "true",
+      "neverexpired": "true",
+      "id": 40
+    },
+    {
+      "username": "avi1",
+      "password": "123456",
+      "confirm_password": "123456",
+      "employeeid": "12",
+      "usertype": "admin",
+      "joiningdate": "2012-02-12",
+      "expirydate": "2023-03-12",
+      "activestatus": "true",
+      "neverexpired": "true",
+      "id": 41
+    },
+    {
+      "username": "avinash",
+      "password": "123456",
+      "confirm_password": "123456",
+      "employeeid": "12",
+      "usertype": "admin",
+      "joiningdate": "2032-11-12",
+      "expirydate": "2012-12-21",
+      "activestatus": "true",
+      "neverexpired": "true",
+      "id": 42
+    },
+    {
+      "username": "chintan",
+      "password": "123456",
+      "confirm_password": "123456",
+      "employeeid": "23",
+      "usertype": "user",
+      "joiningdate": "2012-02-23",
+      "expirydate": "2023-03-20",
+      "activestatus": "",
+      "neverexpired": "",
+      "id": 43
+    },
+    {
+      "username": "chintan",
+      "password": "123456",
+      "confirm_password": "123456",
+      "employeeid": "12",
+      "usertype": "user",
+      "joiningdate": "2012-02-12",
+      "expirydate": "2023-07-31",
+      "activestatus": "false",
+      "neverexpired": false,
+      "id": 44
+    },
+    {
+      "username": "hyyy",
+      "password": "",
+      "confirm_password": "",
+      "employeeid": "12",
+      "usertype": "user",
+      "joiningdate": "2012-09-20",
+      "expirydate": "2023-09-16",
+      "activestatus": false,
+      "neverexpired": true,
+      "id": 45
+    },
+    {
+      "username": "asdsdsada",
+      "password": "123456",
+      "confirm_password": "123456",
+      "employeeid": "1",
+      "usertype": "user",
+      "joiningdate": "2023-08-30",
+      "expirydate": "2023-09-09",
+      "activestatus": false,
+      "neverexpired": false,
+      "id": 46
+    },
+    {
+      "username": "",
+      "password": "",
+      "confirm_password": "Pa$$w0rd!",
+      "employeeid": "71",
+      "usertype": "admin",
+      "joiningdate": "2018-04-27",
+      "expirydate": "1975-02-04",
+      "activestatus": false,
+      "neverexpired": true,
+      "id": 47
+    },
+    {
+      "username": "kamavuxa",
+      "password": "Pa$$w0rd!",
+      "confirm_password": "Pa$$w0rd!",
+      "employeeid": "48",
+      "usertype": "admin",
+      "joiningdate": "2004-07-07",
+      "expirydate": "1986-05-05",
+      "activestatus": false,
+      "neverexpired": true,
+      "id": 48
+    },
+    {
+      "username": "gatyfupyne",
+      "password": "Pa$$w0rd!",
+      "confirm_password": "",
+      "employeeid": "",
+      "usertype": "admin",
+      "joiningdate": "",
+      "expirydate": "2017-09-11",
+      "activestatus": false,
+      "neverexpired": false,
+      "id": 49
+    }
+  ]
+}
