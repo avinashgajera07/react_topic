@@ -6,6 +6,8 @@
         "gatyfupyne",
         "joiningdate",
         "neverexpired",
+        "usercreate",
+        "useredit",
         "usertype"
     ]
 }

@@ -28,28 +28,51 @@ function UserCreate() {
     activestatus: "",
     neverexpired: "",
   });
+  const [joinDateError, setJoinDateError] = useState("");
+  const [expiryDateError, setExpiryDateError] = useState("");
 
   const { values, errors, handleBlur, touched, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: signUpSchema,
       onSubmit: (values, action) => {
-        axios
-          .post("http://localhost:3000/user-management", inputData)
-          .then((res) => {
-            if (initialValues !== "") {
-              alert("Data posts successfully!");
-              navigate("/");
-            } else {
-              alert("data not submited");
-            }
-          });
-        action.resetForm();
+        const today = new Date();
+        const todayFormatted = today.toISOString().split("T")[0];
+
+        // Check if joiningdate is less than today's date
+        if (inputData.joiningdate < todayFormatted) {
+          if (inputData.expirydate > todayFormatted) {
+            axios
+              .post("http://localhost:3000/user-management", inputData)
+              .then((res) => {
+                if (res.data) {
+                  alert("Data posted successfully!");
+                  navigate("/");
+                } else {
+                  alert("Data not submitted");
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+            action.resetForm();
+          } else {
+            setJoinDateError("Please select a valid date");
+          }
+        } else {
+          setExpiryDateError("user was expirer");
+        }
       },
     });
   // console.log("1_" + errors);
 
   const navigate = useNavigate();
+
+  //   if (inputData.joiningdate < todayFormatted) {
+  //     navigate("/usercreate");
+  //   } else {
+  //     alert("Please select a valid date");
+  //   }
 
   return (
     <div className="form_wrapper">
@@ -203,6 +226,11 @@ function UserCreate() {
                         {errors.joiningdate}
                       </p>
                     ) : null}
+                    {joinDateError && (
+                      <p className="form-error" style={{ color: "red" }}>
+                        {joinDateError}
+                      </p>
+                    )}
                   </div>
 
                   <div className="form-group">
@@ -227,6 +255,11 @@ function UserCreate() {
                         {errors.expirydate}
                       </p>
                     ) : null}
+                    {expiryDateError && (
+                      <p className="form-error" style={{ color: "red" }}>
+                        {expiryDateError}
+                      </p>
+                    )}
                   </div>
 
                   <div className="form-group d-flex">
