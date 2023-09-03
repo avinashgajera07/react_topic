@@ -34,11 +34,6 @@ function UserCreate() {
       initialValues: initialValues,
       validationSchema: signUpSchema,
       onSubmit: (values, action) => {
-
-        // Ensure activestatus and neverexpired are boolean values
-        inputData.activestatus = !!inputData.activestatus;
-        inputData.neverexpired = !!inputData.neverexpired;
-
         axios
           .post("http://localhost:3000/user-management", inputData)
           .then((res) => {
@@ -242,21 +237,15 @@ function UserCreate() {
                         id="activestatus"
                         className="input-label ms-2"
                         name="activestatus"
-                        // value={values.activestatus}
-                        checked={inputData.neverexpired}
-                        onChange={(e) =>
-                            setInputData({
-                              ...inputData,
-                              neverexpired: e.target.checked, // Use boolean value directly
-                            })
-                          }
+                        value={values.activestatus}
+                        onChange={handleChange}
                         onBlur={handleBlur}
-                        // onMouseLeave={(e) =>
-                        //     setInputData({
-                        //         ...inputData,
-                        //         neverexpired: e.target.checked, 
-                        //   })
-                        // }
+                        onMouseLeave={(e) =>
+                          setInputData({
+                            ...inputData,
+                            activestatus: e.target.value,
+                          })
+                        }
                       />
                     </div>
 

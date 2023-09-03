@@ -23,8 +23,8 @@ function UserEdit() {
     usertype: "",
     joiningdate: "",
     expirydate: "",
-    activestatus: "false",
-    neverexpired: "false",
+    activestatus: false,
+    neverexpired: false,
   });
   const [errors, setErrors] = useState({
     username: "",
@@ -54,13 +54,13 @@ function UserEdit() {
       .get("http://localhost:3000/user-management/" + id)
       .then((res) => setInputData(res.data))
       .catch((err) => console.log(err));
-    // console.log(initialValues
-    // console.log('API Response (UserEdit):', res.data);
+    // console.log(initialValues);
   }, [id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    //validation on edit button
     // const emptyFields = Object.keys(inputData).filter((key) => !inputData[key]);
     // if (emptyFields.length > 0) {
     //     const fieldErrors = {};
@@ -71,17 +71,15 @@ function UserEdit() {
     //     return; // Exit early if any field is empty
     // }
 
-    // if (!inputData.activestatus) {
-    //     inputData.activestatus = false;
-    //   }
+    // Convert activestatus to boolean
+    const activestatus = inputData.activestatus === "true";
     axios
       .put("http://localhost:3000/user-management/" + id, inputData)
       .then((res) => {
-        // const data=JSON.stringify(res)
-        console.log(res );  
+        console.log(res);
         alert("Data updated successfully!");
         navigate("/");
-    });
+      });
   };
 
   return (
@@ -334,15 +332,15 @@ function UserEdit() {
                         id="activestatus"
                         className="form-check-input ms-2"
                         name="activestatus"
+                        // value={values.activestatus}
                         // onChange={handleChange}
-                        value={inputData.activestatus}
-                        checked={inputData.activestatus}
-                        onChange={(e) => {
-                            setInputData({
-                              ...inputData,
-                              activestatus: !inputData.activestatus,
-                            });
-                          }}
+                        // onBlur={handleBlur}
+                        onMouseLeave={(e) =>
+                          setInputData({
+                            ...inputData,
+                            activestatus: e.target.value,
+                          })
+                        }
                       />
                     </div>
 
@@ -354,14 +352,21 @@ function UserEdit() {
                         className="form-check-input ms-2"
                         name="neverexpired"
                         // onChange={handleChange}
-                        value={inputData.neverexpired}
-                        checked={inputData.neverexpired}
-                        onChange={(e) => {
+                        // value={inputData.neverexpired}
+                        // checked={inputData.neverexpired}
+                        // onChange={(e) => {
+                        //   setInputData({
+                        //     ...inputData,
+                        //     neverexpired: !inputData.neverexpired,
+                        //   });
+                        // }}
+                        checked={inputData.neverexpired === true}
+                        onChange={(e) =>
                           setInputData({
                             ...inputData,
-                            neverexpired: !inputData.neverexpired,
-                          });
-                        }}
+                            neverexpired: e.target.checked,
+                          })
+                        }
                       />
                     </div>
                   </div>

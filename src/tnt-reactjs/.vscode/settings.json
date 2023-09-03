@@ -3,6 +3,7 @@
         "activestatus",
         "employeeid",
         "expirydate",
+        "gatyfupyne",
         "joiningdate",
         "neverexpired",
         "usertype"
