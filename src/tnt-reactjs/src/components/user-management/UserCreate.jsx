@@ -36,32 +36,21 @@ function UserCreate() {
       initialValues: initialValues,
       validationSchema: signUpSchema,
       onSubmit: (values, action) => {
-        const today = new Date();
-        const todayFormatted = today.toISOString().split("T")[0];
-
-        // Check if joiningdate is less than today's date
-        if (inputData.joiningdate < todayFormatted) {
-          if (inputData.expirydate > todayFormatted) {
-            axios
-              .post("http://localhost:3000/user-management", inputData)
-              .then((res) => {
-                if (res.data) {
-                  alert("Data posted successfully!");
-                  navigate("/");
-                } else {
-                  alert("Data not submitted");
-                }
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-              });
-            action.resetForm();
-          } else {
-            setJoinDateError("Please select a valid date");
-          }
-        } else {
-          setExpiryDateError("user was expirer");
-        }
+  
+          axios
+            .post("http://localhost:3000/user-management", inputData)
+            .then((res) => {
+              if (res.data) {
+                alert("Data posted successfully!");
+                navigate("/");
+              } else {
+                alert("Data not submitted");
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+          action.resetForm();
       },
     });
   // console.log("1_" + errors);

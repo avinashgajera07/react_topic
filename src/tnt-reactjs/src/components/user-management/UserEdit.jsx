@@ -39,16 +39,6 @@ function UserEdit() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  // const formik = useFormik({
-  //     initialValues: inputData,
-  //     validationSchema: signUpSchema,
-  //     onSubmit: (value, action) => {
-  //         // console.log(inputData);
-  //         action.resetForm();
-  //     }
-  // });
-  // // console.log(errors);
-
   useEffect(() => {
     axios
       .get("http://localhost:3000/user-management/" + id)
@@ -60,19 +50,7 @@ function UserEdit() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //validation on edit button
-    // const emptyFields = Object.keys(inputData).filter((key) => !inputData[key]);
-    // if (emptyFields.length > 0) {
-    //     const fieldErrors = {};
-    //     emptyFields.forEach((field) => {
-    //         fieldErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required`;
-    //     });
-    //     setErrors(fieldErrors);
-    //     return; // Exit early if any field is empty
-    // }
-
     // Convert activestatus to boolean
-    const activestatus = inputData.activestatus === "true";
     axios
       .put("http://localhost:3000/user-management/" + id, inputData)
       .then((res) => {
