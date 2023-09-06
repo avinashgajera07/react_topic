@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function UserHomepage() {
   const [data, setData] = useState([]);
-  const navigate = useNavigate();
   
 
   useEffect(() => {
@@ -13,7 +12,6 @@ function UserHomepage() {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
-
 
   return (
     <div className="container mt-5">
@@ -46,43 +44,50 @@ function UserHomepage() {
           </tr>
         </thead>
         <tbody>
-            {data.map((d, i) => (
-              <tr key={i}>
-                <td>{d.id}</td>
-                <td>{d.employeeid}</td>
-                <td>{d.username}</td>
-                <td>{d.usertype}</td>
-                <td>{d.activestatus}</td>
-                <td>{d.expirydate}</td>
-                <td>
-                  <Link
-                    className="text-decoration-none btn btn-sm btn btn-info me-2 p-2"
-                    to={`/useredit/${d.id}`}
-                  >
-                    <i className="fas fa-edit ms-1 me-2"></i>Edit
-                  </Link>
-                  <button
-                    className="text-decoration-none btn btn-sm btn-danger ms-2 p-2"
-                    onClick={() => handleDelete(d.id)}
-                  >
-                    <i className="fas fa-solid fa-trash me-1"></i>Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+          {data.map((d, i) => (
+            <tr key={i}>
+              <td>{d.id}</td>
+              <td>{d.employeeid}</td>
+              <td>{d.username}</td>
+              <td>{d.usertype}</td>
+              <td>{d.activestatus}</td>
+              <td>{d.expirydate}</td>
+              <td>
+                <Link
+                  className="text-decoration-none btn btn-sm btn btn-info me-2 p-2"
+                  to={`/useredit/${d.id}`}
+                >
+                  <i className="fas fa-edit ms-1 me-2"></i>Edit
+                </Link>
+                <button
+                  className="text-decoration-none btn btn-sm btn-danger ms-2 p-2"
+                  onClick={() => handleDelete(d.id)}
+                >
+                  <i className="fas fa-solid fa-trash me-1"></i>Delete
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
   );
 
   function handleDelete(id) {
-    const confirm = window.confirm("Are you sure delete this data?");
-    if (confirm) {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this data?"
+    );
+
+    if (confirmDelete) {
       axios
-        .delete("http://localhost:3000/user-management/" + id)
+        .delete(`http://localhost:3000/user-management/${id}`)
         .then((res) => {
-          alert("Record Delete");
-          navigate("/");
+          // Update the state to remove the deleted user
+          setData((prevData) => prevData.filter((user) => user.id !== id));
+
+        })
+        .catch((error) => {
+          console.error("Error deleting user:", error);
         });
     }
   }

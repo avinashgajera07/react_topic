@@ -52,18 +52,6 @@
       "username": "chintan",
       "password": "123456",
       "confirm_password": "123456",
-      "employeeid": "23",
-      "usertype": "user",
-      "joiningdate": "2012-02-23",
-      "expirydate": "2023-03-20",
-      "activestatus": true,
-      "neverexpired": "",
-      "id": 43
-    },
-    {
-      "username": "chintan",
-      "password": "123456",
-      "confirm_password": "123456",
       "employeeid": "12",
       "usertype": "user",
       "joiningdate": "2012-02-12",
@@ -73,18 +61,6 @@
       "id": 44
     },
     {
-      "username": "rilohuz",
-      "password": "Pa$$w0rd!",
-      "confirm_password": "Pa$$w0rd!",
-      "employeeid": "64",
-      "usertype": "admin",
-      "joiningdate": "1971-01-21",
-      "expirydate": "2000-09-04",
-      "activestatus": true,
-      "neverexpired": "true",
-      "id": 46
-    },
-    {
       "username": "qeguvazypy",
       "password": "Pa$$w0rd!",
       "confirm_password": "Pa$$w0rd!",
@@ -92,8 +68,8 @@
       "usertype": "admin",
       "joiningdate": "1978-03-19",
       "expirydate": "2023-07-02",
-      "activestatus": "true",
-      "neverexpired": "true",
+      "activestatus": "on",
+      "neverexpired": true,
       "id": 55
     },
     {
@@ -104,8 +80,8 @@
       "usertype": "admin",
       "joiningdate": "2023-09-21",
       "expirydate": "2023-09-20",
-      "activestatus": "false",
-      "neverexpired": "false",
+      "activestatus": "on",
+      "neverexpired": true,
       "id": 57
     },
     {
@@ -116,8 +92,8 @@
       "usertype": "user",
       "joiningdate": "2023-09-07",
       "expirydate": "2023-09-20",
-      "activestatus": "false",
-      "neverexpired": "",
+      "activestatus": "on",
+      "neverexpired": true,
       "id": 58
     },
     {
@@ -128,81 +104,33 @@
       "usertype": "admin",
       "joiningdate": "2023-09-19",
       "expirydate": "2023-09-08",
-      "activestatus": "true",
-      "neverexpired": "true",
+      "activestatus": true,
+      "neverexpired": true,
       "id": 59
     },
     {
       "username": "",
-      "password": "123456",
-      "confirm_password": "123456",
-      "employeeid": "1",
-      "usertype": "admin",
-      "joiningdate": "2023-09-12",
-      "expirydate": "2023-09-15",
-      "activestatus": "true",
-      "neverexpired": "true",
+      "password": "",
+      "confirm_password": "",
+      "employeeid": "",
+      "usertype": "user",
+      "joiningdate": "",
+      "expirydate": "",
+      "activestatus": false,
+      "neverexpired": false,
       "id": 60
     },
     {
-      "username": "sad",
-      "password": "123456",
-      "confirm_password": "123456",
+      "username": "sadcdssd",
+      "password": "111111",
+      "confirm_password": "111111",
       "employeeid": "1",
       "usertype": "admin",
-      "joiningdate": "2023-10-03",
-      "expirydate": "2023-09-12",
-      "activestatus": "false",
-      "neverexpired": "",
+      "joiningdate": "2023-09-16",
+      "expirydate": "2023-09-22",
+      "activestatus": " ",
+      "neverexpired": "true",
       "id": 61
-    },
-    {
-      "username": "asds",
-      "password": "123456",
-      "confirm_password": "123456",
-      "employeeid": "9",
-      "usertype": "admin",
-      "joiningdate": "2023-08-29",
-      "expirydate": "2023-09-07",
-      "activestatus": "",
-      "neverexpired": "",
-      "id": 62
-    },
-    {
-      "username": "",
-      "password": "123456",
-      "confirm_password": "123456",
-      "employeeid": "11",
-      "usertype": "admin",
-      "joiningdate": "2023-08-02",
-      "expirydate": "2023-08-28",
-      "activestatus": "",
-      "neverexpired": "",
-      "id": 63
-    },
-    {
-      "username": "as",
-      "password": "123456",
-      "confirm_password": "123456",
-      "employeeid": "1",
-      "usertype": "admin",
-      "joiningdate": "2023-08-29",
-      "expirydate": "2023-09-06",
-      "activestatus": "",
-      "neverexpired": "",
-      "id": 64
-    },
-    {
-      "username": "",
-      "password": "123456",
-      "confirm_password": "123456",
-      "employeeid": "1",
-      "usertype": "admin",
-      "joiningdate": "2023-08-21",
-      "expirydate": "2023-08-28",
-      "activestatus": "false",
-      "neverexpired": "",
-      "id": 65
     }
   ]
 }

@@ -12,8 +12,8 @@ const initialValues = {
   usertype: "",
   joiningdate: "",
   expirydate: "",
-  activestatus: false,
-  neverexpired: false,
+  activestatus: " ",
+  neverexpired: "",
 };
 
 function UserCreate() {
@@ -25,8 +25,8 @@ function UserCreate() {
     usertype: "",
     joiningdate: "",
     expirydate: "",
-    activestatus: "",
-    neverexpired: "",
+    activestatus: false,
+    neverexpired: false
   });
   const [joinDateError, setJoinDateError] = useState("");
   const [expiryDateError, setExpiryDateError] = useState("");
@@ -36,21 +36,20 @@ function UserCreate() {
       initialValues: initialValues,
       validationSchema: signUpSchema,
       onSubmit: (values, action) => {
-  
-          axios
-            .post("http://localhost:3000/user-management", inputData)
-            .then((res) => {
-              if (res.data) {
-                alert("Data posted successfully!");
-                navigate("/");
-              } else {
-                alert("Data not submitted");
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-          action.resetForm();
+        axios
+          .post("http://localhost:3000/user-management", inputData)
+          .then((res) => {
+            if (res.data) {
+              alert("Data posted successfully!");
+              navigate("/");
+            } else {
+              alert("Data not submitted");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+        action.resetForm();
       },
     });
   // console.log("1_" + errors);
@@ -198,10 +197,11 @@ function UserCreate() {
                     <input
                       type="date"
                       id="joiningdate"
+                      max={31 - 12 - 9999}
                       className="form-control input-label"
                       name="joiningdate"
                       value={values.joiningdate}
-                      onChange={handleChange}
+                      onChange={handleChange}   
                       onBlur={handleBlur}
                       onMouseLeave={(e) =>
                         setInputData({
@@ -227,6 +227,7 @@ function UserCreate() {
                     <input
                       type="date"
                       id="expirydate"
+                      max={31 - 12 - 9999}
                       className="form-control input-label"
                       name="expirydate"
                       value={values.expirydate}
