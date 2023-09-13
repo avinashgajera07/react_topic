@@ -8,7 +8,7 @@
       "usertype": "admin",
       "joiningdate": "1111-01-21",
       "expirydate": "2021-01-12",
-      "activestatus": "false",
+      "activestatus": "on",
       "neverexpired": "true",
       "id": 39
     },
@@ -20,7 +20,7 @@
       "usertype": "user",
       "joiningdate": "2023-09-01",
       "expirydate": "2023-08-29",
-      "activestatus": "true",
+      "activestatus": "on",
       "neverexpired": "true",
       "id": 40
     },
@@ -56,8 +56,8 @@
       "usertype": "user",
       "joiningdate": "2012-02-12",
       "expirydate": "2023-07-31",
-      "activestatus": "false",
-      "neverexpired": false,
+      "activestatus": "on",
+      "neverexpired": "false",
       "id": 44
     },
     {
@@ -69,7 +69,7 @@
       "joiningdate": "1978-03-19",
       "expirydate": "2023-07-02",
       "activestatus": "on",
-      "neverexpired": true,
+      "neverexpired": "false",
       "id": 55
     },
     {
@@ -104,8 +104,8 @@
       "usertype": "admin",
       "joiningdate": "2023-09-19",
       "expirydate": "2023-09-08",
-      "activestatus": true,
-      "neverexpired": true,
+      "activestatus": "on",
+      "neverexpired": "false",
       "id": 59
     },
     {

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { string } from "yup";
+
 
 // const initialValues = {
 //     username: "",
@@ -46,27 +46,34 @@ function UserEdit() {
       .then((res) => {
         // Retrieve the user data from the API response
         const userData = res.data;
-
-        // Update the state with the retrieved data, including checkbox values
+  
+        // Convert strings to booleans
+        const activestatus = userData.activestatus === "true";
+        const neverexpired = userData.neverexpired === "true";
+  
+        // Update the state with the retrieved data
         setInputData({
           ...userData,
-          activestatus: string(userData.activestatus), // Convert to boolean
-          neverexpired: string(userData.neverexpired), // Convert to boolean
+          activestatus,
+          neverexpired,
         });
       })
       .catch((err) => console.log(err));
   }, [id]);
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Convert activestatus to boolean
+    // Convert activestatus and neverexpired to strings
+    const postData = {
+      ...inputData,
+      activestatus: inputData.activestatus.toString(),
+      neverexpired: inputData.neverexpired.toString(),
+    };
+
     axios
-      .put("http://localhost:3000/user-management/" + id, {
-        ...inputData,
-        activestatus: inputData.activestatus.toString(),
-        neverexpired: inputData.neverexpired.toString(),
-      })
+      .put("http://localhost:3000/user-management/" + id, postData)
       .then((res) => {
         console.log(res);
         alert("Data updated successfully!");
