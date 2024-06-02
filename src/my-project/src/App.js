@@ -21,6 +21,8 @@ const App = () => {
       <ProjectForm onSubmit={handleProjectSubmit} />
       <TaskForm onSubmit={handleTaskSubmit} />
       <ListingPage projects={projects} tasks={tasks} />
+
+
     </div>
   );
 };
