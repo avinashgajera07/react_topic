@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "Avinash",
+      "name": "Avinash gajera",
       "email": "aviansh@gmail.com"
     },
     {
@@ -34,11 +34,6 @@
       "id": 7,
       "name": "avigajera",
       "email": "avigajera@gmail.com"
-    },
-    {
-      "id": 8,
-      "name": "chintu",
-      "email": "chintu@gamil.com"
     }
   ]
 }

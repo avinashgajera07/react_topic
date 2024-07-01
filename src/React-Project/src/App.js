@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Curd App/Home.jsx";
 import Create from "./Curd App/Create.jsx";
 import Update from "./Curd App/Update.jsx";

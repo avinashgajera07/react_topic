@@ -14,18 +14,29 @@ function Home() {
       .catch((err) => console.log(err));
   }, []);
 
+  // useEffect(() => {
+  //   const unloadCallback = (event) => {
+  //     event.preventDefault();
+  //     event.returnValue = "";
+  //     return "";
+  //   };
 
-  useEffect(() => {
-    const unloadCallback = (event) => {
-      event.preventDefault();
-      event.returnValue = "";
-      return "";
-    };
-  
-    window.addEventListener("beforeunload", unloadCallback);
-    return () => window.removeEventListener("beforeunload", unloadCallback);
-  }, []);
+  //   window.addEventListener("beforeunload", unloadCallback);
+  //   return () => window.removeEventListener("beforeunload", unloadCallback);
+  // }, []);
 
+  const handleDelete = (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this record?");
+    if (confirmDelete) {
+      axios.delete(`http://localhost:3000/users/${id}`).then((res) => {
+        alert("Record deleted successfully");
+        // Update state after deletion
+        setData(data.filter((item) => item.id !== id));;
+        // Optionally, you can re-fetch data from the server
+        // fetchData();
+      });
+    }
+  };
 
   return (
     <div className="container mt-5">
@@ -51,7 +62,7 @@ function Home() {
               <td>
                 <Link
                   className="text-decorataion-none me-2 btn btn-sm btn-success"
-                  to={`/update/${d.id}`} 
+                  to={`/update/${d.id}`}
                 >
                   Update
                 </Link>
@@ -74,15 +85,6 @@ function Home() {
       </Table>
     </div>
   );
-  function handleDelete(id) {
-    const confirm = window.confirm("Are you sure delete this data?");
-    if (confirm) {
-      axios.delete("http://localhost:3000/users/" + id).then((res) => {
-        alert("Record Delete");
-        navigate("/");
-      });
-    }
-  }
 }
 
 export default Home;
