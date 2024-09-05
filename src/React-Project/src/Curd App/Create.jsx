@@ -10,6 +10,10 @@ function Create() {
     email: "",
   });
 
+  // const handelchangeeve = (data) => {
+  //   setInputData({ ...data });
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post("http://localhost:3000/users", inputData).then((res) => {
@@ -25,6 +29,20 @@ function Create() {
     <div className="d-flex w-100 vh-100 justify-content-center align-items-center">
       <div className="w-50 border bg-secondery text-white p-5">
         <form onSubmit={handleSubmit}>
+          <div>
+            {/* <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              name="name"
+              className="form-control"
+              placeholder="Name"
+              onChange={(e) => {
+                const data = inputData;
+                data.name = e.target.value;
+                handelchangeeve(data);
+              }}
+            /> */}
+          </div>
           <div>
             <label htmlFor="name">Name:</label>
             <input

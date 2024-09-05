@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 function Update() {
   const { id } = useParams();
-
   const [inputData, setInputData] = useState({
     id: id,
     name: "",

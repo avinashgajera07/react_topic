@@ -14,17 +14,6 @@ function Home() {
       .catch((err) => console.log(err));
   }, []);
 
-  // useEffect(() => {
-  //   const unloadCallback = (event) => {
-  //     event.preventDefault();
-  //     event.returnValue = "";
-  //     return "";
-  //   };
-
-  //   window.addEventListener("beforeunload", unloadCallback);
-  //   return () => window.removeEventListener("beforeunload", unloadCallback);
-  // }, []);
-
   const handleDelete = (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this record?");
     if (confirmDelete) {
