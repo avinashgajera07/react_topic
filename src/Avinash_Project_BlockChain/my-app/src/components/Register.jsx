@@ -7,11 +7,9 @@ const Register = () => {
 
   const { register, handleSubmit, reset, setValue } = useForm();
 
-
   const navigate = useNavigate();
   const location = useLocation();
   const editUser = location.state?.editUser; // Get the passed editUser data
-
 
   useEffect(() => {
     // If editUser is availabel,set the value of edit user data
