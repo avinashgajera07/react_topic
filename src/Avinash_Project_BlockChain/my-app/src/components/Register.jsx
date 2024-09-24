@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Register = () => {
-
-
+  
   const { register, handleSubmit, reset, setValue } = useForm();
 
   const navigate = useNavigate();
