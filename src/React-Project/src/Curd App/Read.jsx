@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Read() {
   const { id } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); 
 
   useEffect(() => {
     // Fetch the data 
@@ -23,22 +23,13 @@ function Read() {
         }
       })
       .catch((err) => console.log(err));
+      console.log("data", data);
   }, [id]);
 
   return (
     <div className="d-flex w-100 vh-100 justify-content-center align-items-center">
       <div className="w-50 border bg-secondery p-5">
         <h2>Read User Data</h2>
-        <div className="mb-3 mt-4">
-          <label htmlFor="id">Id:</label>
-          <input
-            type="number"
-            disabled
-            name="id"
-            className="form-control"
-            value={data.id}
-          />
-        </div>
         <div className="mb-3 mt-4">
           <label>Name:</label>
           <input

@@ -4,7 +4,7 @@ import axios from "axios";
 
 function Update() {
   const { id } = useParams();
-  const [user, setUser] = useState({ id: "", name: "", email: "" });
+  const [user, setUser] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,7 +13,9 @@ function Update() {
       .get(`http://localhost:5000/users`)
       .then((res) => {
         const data = res.data;
+        console.log(data,"data")
         const userToEdit = data[parseInt(id) - 1];
+        console.log(userToEdit,"ucghs")
         if (userToEdit) {
           setUser({
             id: userToEdit.id,
