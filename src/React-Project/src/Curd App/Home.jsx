@@ -9,18 +9,20 @@ function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:3000/users")
+      .get("http://localhost:5000/users")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
 
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this record?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this record?"
+    );
     if (confirmDelete) {
-      axios.delete(`http://localhost:3000/users/${id}`).then((res) => {
+      axios.delete(`http://localhost:5000/users/${id}`).then((res) => {
         alert("Record deleted successfully");
         // Update state after deletion
-        setData(data.filter((item) => item.id !== id));;
+        setData(data.filter((item) => item.id !== id));
         // Optionally, you can re-fetch data from the server
         // fetchData();
       });
@@ -31,7 +33,8 @@ function Home() {
     <div className="container mt-5">
       <h2>CURD Operation</h2>
       <Link to="/create" className="btn btn-success my-3">
-        Create +
+        <i class="fa-solid fa-plus me-2"></i>
+        Create
       </Link>
       <Table className="table">
         <thead>
@@ -43,28 +46,31 @@ function Home() {
           </tr>
         </thead>
         <tbody>
-          {data.map((d, i) => (
-            <tr key={i}>
-              <td>{d.id}</td>
+          {data.map((d, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
               <td>{d.name}</td>
               <td>{d.email}</td>
               <td>
                 <Link
                   className="text-decorataion-none me-2 btn btn-sm btn-success"
-                  to={`/update/${d.id}`}
+                  to={`/update/${index + 1}`}
                 >
+                  <i class="fa-solid fa-pen-to-square me-2"></i>
                   Update
                 </Link>
                 <button
                   className="text-decorataion-none me-2 btn btn-sm btn-danger"
                   onClick={(e) => handleDelete(d.id)}
                 >
+                  <i class="fa-solid fa-trash me-2"></i>
                   Delete
                 </button>
                 <Link
                   className="text-decorataion-none btn btn-sm btn-primary"
-                  to={`/read/${d.id}`}
+                  to={`/read/${index + 1}`}
                 >
+                  <i class="fa-brands fa-readme me-2"></i>
                   Read
                 </Link>
               </td>

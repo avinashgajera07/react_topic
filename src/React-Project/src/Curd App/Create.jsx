@@ -16,18 +16,19 @@ function Create() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:3000/users", inputData).then((res) => {
-      navigate("/");
+    axios.post("http://localhost:5000/users", inputData).then((res) => {
+      if (inputData) {
+        alert("Data posts successfully!");
+        navigate("/");
+      } else {
+        alert("data not submited");
+      }
     });
-    if (inputData) {
-      alert("Data posts successfully!");
-    } else {
-      alert("data not submited");
-    }
   };
   return (
     <div className="d-flex w-100 vh-100 justify-content-center align-items-center">
-      <div className="w-50 border bg-secondery text-white p-5">
+      <div className="w-50 border bg-secondery p-5">
+        <h2>Create User</h2>
         <form onSubmit={handleSubmit}>
           <div>
             {/* <label htmlFor="name">Name:</label>
@@ -43,25 +44,25 @@ function Create() {
               }}
             /> */}
           </div>
-          <div>
+          <div className="mb-3 mt-4">
             <label htmlFor="name">Name:</label>
             <input
               type="text"
               name="name"
               className="form-control"
-              placeholder="Name"
+              placeholder="please enter name"
               onChange={(e) =>
                 setInputData({ ...inputData, name: e.target.value })
               }
             />
           </div>
-          <div>
+          <div className="mb-3 mt-4">
             <label htmlFor="email">Email:</label>
             <input
               type="email"
               name="email"
               className="form-control"
-              placeholder="Email"
+              placeholder="Please enter email"
               onChange={(e) =>
                 setInputData({ ...inputData, email: e.target.value })
               }

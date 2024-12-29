@@ -5,12 +5,16 @@
   "main": "index.js",
   "types": "module",
   "scripts": {
+    "start": "node MongoDB/CRUDMongoDB.js",
+    "dev": "nodemon MongoDB/CRUDMongoDB.js.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "avi",
   "license": "ISC",
   "dependencies": {
     "esm": "^3.2.25",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongodb": "^6.11.0",
+    "nodemon": "^3.1.7"
   }
 }
