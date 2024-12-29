@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 
 function Home() {
   const [data, setData] = useState([]);
-  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("http://localhost:5000/users")
@@ -20,11 +19,7 @@ function Home() {
     );
     if (confirmDelete) {
       axios.delete(`http://localhost:5000/users/${id}`).then((res) => {
-        alert("Record deleted successfully");
-        // Update state after deletion
         setData(data.filter((item) => item.id !== id));
-        // Optionally, you can re-fetch data from the server
-        // fetchData();
       });
     }
   };

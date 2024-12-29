@@ -10,14 +10,14 @@ function Read() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Fetch the data for the specific user using the ID from the URL
+    // Fetch the data 
     axios
       .get(`http://localhost:5000/users`)
       .then((res) => {
         const data = res.data;
-        const userToEdit = data[parseInt(id) - 1]; // Map incremental ID to the user
+        const userToEdit = data[parseInt(id) - 1];
         if (userToEdit) {
-          setData({ id: id, name: userToEdit.name, email: userToEdit.email }); // Set user details
+          setData({ id: id, name: userToEdit.name, email: userToEdit.email }); 
         } else {
           console.log("User not found!");
         }

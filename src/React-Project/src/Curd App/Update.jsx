@@ -3,42 +3,43 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 function Update() {
-  const { id } = useParams(); // Get the incremental ID from the URL
-  const [user, setUser] = useState({ name: "", email: "" }); // User state
+  const { id } = useParams();
+  const [user, setUser] = useState({ id: "", name: "", email: "" });
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch the data for the specific user using the ID from the URL
+    // Fetch the user data based on their MongoDB `_id`
     axios
       .get(`http://localhost:5000/users`)
       .then((res) => {
         const data = res.data;
-        const userToEdit = data[parseInt(id) - 1]; // Map incremental ID to the user
+        const userToEdit = data[parseInt(id) - 1];
         if (userToEdit) {
-          setUser({ id: id, name: userToEdit.name, email: userToEdit.email }); // Set user details
+          setUser({
+            id: userToEdit.id,
+            name: userToEdit.name,
+            email: userToEdit.email,
+          }); 
         } else {
-          console.log("User not found!");
+          console.error("User not found!");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
+    console.log("user", user);
   }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Fetch the actual MongoDB _id based on the incremental ID
+    // Update the user data
     axios
-      .get(`http://localhost:5000/users`)
-      .then((res) => {
-        const data = res.data;
-        const userId = data[parseInt(id) - 1]._id; // Get original MongoDB _id
-        axios
-          .put(`http://localhost:5000/users/${userId}`, user)
-          .then(() => {
-            alert("User updated successfully");
-            navigate("/");
-          })
-          .catch((err) => console.error(err));
+      .put(`http://localhost:5000/users/${user.id}`, {
+        name: user.name,
+        email: user.email,
+      })
+      .then(() => {
+        alert("User updated successfully");
+        navigate("/");
       })
       .catch((err) => console.error(err));
   };
@@ -48,38 +49,26 @@ function Update() {
       <div className="w-50 border bg-secondery p-5">
         <h2>Update User</h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3 mt-4">
-            <label htmlFor="id">Id:</label>
-            <input
-              type="number"
-              disabled
-              name="id"
-              className="form-control"
-              value={user.id}
-            />
-          </div>
-          <div className="mb-3 mt-4">
+        <div className="mb-3 mt-4">
             <label>Name:</label>
             <input
               type="text"
               className="form-control"
               value={user.name}
-              placeholder="Please enter name"
               onChange={(e) => setUser({ ...user, name: e.target.value })}
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 mt-4">
             <label>Email:</label>
             <input
               type="email"
               className="form-control"
               value={user.email}
-              placeholder="Please enter email"
               onChange={(e) => setUser({ ...user, email: e.target.value })}
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            <i class="fa-solid fa-pen-to-square me-2"></i>
+          <i class="fa-solid fa-pen-to-square me-2"></i>
             Update
           </button>
         </form>

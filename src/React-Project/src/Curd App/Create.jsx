@@ -10,10 +10,6 @@ function Create() {
     email: "",
   });
 
-  // const handelchangeeve = (data) => {
-  //   setInputData({ ...data });
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post("http://localhost:5000/users", inputData).then((res) => {
@@ -30,20 +26,6 @@ function Create() {
       <div className="w-50 border bg-secondery p-5">
         <h2>Create User</h2>
         <form onSubmit={handleSubmit}>
-          <div>
-            {/* <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              name="name"
-              className="form-control"
-              placeholder="Name"
-              onChange={(e) => {
-                const data = inputData;
-                data.name = e.target.value;
-                handelchangeeve(data);
-              }}
-            /> */}
-          </div>
           <div className="mb-3 mt-4">
             <label htmlFor="name">Name:</label>
             <input
