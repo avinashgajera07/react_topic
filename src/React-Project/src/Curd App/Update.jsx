@@ -10,7 +10,7 @@ function Update() {
   useEffect(() => {
     // Fetch the user data based on their MongoDB `_id`
     axios
-      .get(`http://localhost:5000/users`)
+      .get(`http://localhost:3000/users`)
       .then((res) => {
         const data = res.data;
         console.log(data,"data")
@@ -35,7 +35,7 @@ function Update() {
 
     // Update the user data
     axios
-      .put(`http://localhost:5000/users/${user.id}`, {
+      .put(`http://localhost:3000/users/${user.id}`, {
         name: user.name,
         email: user.email,
       })

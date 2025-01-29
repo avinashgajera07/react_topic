@@ -5,14 +5,13 @@ import axios from "axios";
 function Create() {
   const navigate = useNavigate();
   const [inputData, setInputData] = useState({
-    id: "",
     name: "",
     email: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:5000/users", inputData).then((res) => {
+    axios.post("http://localhost:3000/users", inputData).then((res) => {
       if (inputData) {
         alert("Data posts successfully!");
         navigate("/");

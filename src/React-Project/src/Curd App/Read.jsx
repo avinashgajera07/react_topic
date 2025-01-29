@@ -12,7 +12,7 @@ function Read() {
   useEffect(() => {
     // Fetch the data 
     axios
-      .get(`http://localhost:5000/users`)
+      .get(`http://localhost:3000/users`)
       .then((res) => {
         const data = res.data;
         const userToEdit = data[parseInt(id) - 1];

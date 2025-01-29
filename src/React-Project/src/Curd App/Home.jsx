@@ -8,7 +8,7 @@ function Home() {
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users")
+      .get("http://localhost:3000/users")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -18,7 +18,7 @@ function Home() {
       "Are you sure you want to delete this record?"
     );
     if (confirmDelete) {
-      axios.delete(`http://localhost:5000/users/${id}`).then((res) => {
+      axios.delete(`http://localhost:3000/users/${id}`).then((res) => {
         setData(data.filter((item) => item.id !== id));
       });
     }
