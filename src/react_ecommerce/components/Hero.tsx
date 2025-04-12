@@ -29,7 +29,9 @@ function Hero() {
           fill className="object-contain"
           />
 
-          <div className="hero__image-overlay"></div>
+          <div className="hero__image-overlay">
+            {/* <Image src='/hero-bg.png' alt="hero-bg" width={130} height={40} /> */}
+          </div>
         </div>
       </div>
     </div>

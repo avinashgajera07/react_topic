@@ -65,7 +65,7 @@ body {
 }
 
 .bg-hero-bg {
-  background-image: var(--bg-hero-bg);
+  background-image: url(../public/hero-bg.png);
 }
 
 /* START: General styles */
